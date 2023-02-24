@@ -16,8 +16,20 @@ navigator.geolocation.getCurrentPosition(
   function (pos) {
     const { latitude } = pos.coords;
     const { longitude } = pos.coords;
+    const coords = [latitude, longitude];
 
-    console.log(`https://www.google.com/maps/@${latitude},${longitude},12z`);
+    // console.log(`https://www.google.com/maps/@${latitude},${longitude},12z`);
+    const map = L.map('map').setView(coords, 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    L.marker(coords)
+      .addTo(map)
+      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+      .openPopup();
   },
   function () {
     alert(`Error 2023`);
