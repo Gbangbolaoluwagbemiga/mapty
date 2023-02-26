@@ -11,17 +11,57 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
-// Global variable
-// let mapEvent, map;
+class workout {
+  date = new Date();
+  id = (Date.now() + '').slice(-1);
 
+  constructor(coords, distance, duration) {
+    this.coords = coords;
+    this.distance = distance;
+    this.duration = duration;
+  }
+}
+
+class Run extends workout {
+  constructor(coords, distance, duration, cadence) {
+    super(coords, distance, duration);
+    this.cadence = cadence;
+    this.calcPace();
+  }
+
+  calcPace() {
+    this.pace = this.duration / this.distance;
+    return this.pace;
+  }
+}
+
+class Cycle extends workout {
+  constructor(coords, distance, duration, elevationGain) {
+    super(coords, distance, duration);
+    this.elevationGain = elevationGain;
+    this.calcSpeed();
+  }
+
+  calcSpeed() {
+    this.speed = this.distance / (this.duration / 60);
+    return this.speed;
+  }
+}
+
+// const run = new Run();
+// const cycle = new Cycle();
+// console.log(run, cycle);
+
+//////////////////////////
+// Application structure
 class App {
+  // Global variable
   #map;
   #mapEvent;
 
   constructor() {
     this._getPosition();
     inputType.addEventListener('change', this._toggleElevationField);
-
     form.addEventListener('submit', this._newWorkout.bind(this));
   }
 
