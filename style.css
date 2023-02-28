@@ -32,6 +32,7 @@ body {
   padding: 2.5rem;
 
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* GENERAL */
@@ -217,4 +218,10 @@ a:visited {
 }
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+@media screen and (max-width: 1000px) {
+  #map {
+    width: fit-content;
+  }
 }
