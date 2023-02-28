@@ -90,6 +90,7 @@ class App {
   #workouts = [];
 
   constructor() {
+    alert(`click on the map, to start a workout`);
     this._getPosition();
     this._getLocalStorage();
     inputType.addEventListener('change', this._toggleElevationField);
