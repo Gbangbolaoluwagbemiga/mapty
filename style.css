@@ -227,6 +227,10 @@ a:visited {
   .form {
     padding: 1rem;
   }
+  .sidebar {
+    height: 50%;
+    padding: 1.5rem;
+  }
 
   .form__row {
     align-items: flex-start;
