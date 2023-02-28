@@ -225,6 +225,10 @@ a:visited {
     width: fit-content;
   }
 
+  .workout {
+    padding: 1.5rem;
+  }
+
   .workout__title {
     font-size: 1.5rem;
   }
