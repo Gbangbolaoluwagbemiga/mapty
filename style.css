@@ -224,4 +224,11 @@ a:visited {
   #map {
     width: fit-content;
   }
+  .form {
+    padding: 1rem;
+  }
+
+  .form__row {
+    align-items: flex-start;
+  }
 }
