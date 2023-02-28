@@ -228,8 +228,9 @@ a:visited {
     padding: 1rem;
   }
   .sidebar {
-    height: 50%;
+    height: 80%;
     padding: 1.5rem;
+    width: 100%;
   }
 
   .form__row {
